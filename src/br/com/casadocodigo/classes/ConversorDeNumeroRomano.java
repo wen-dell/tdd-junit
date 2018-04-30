@@ -22,9 +22,19 @@ public class ConversorDeNumeroRomano {
 
 	public int converte(String numero) {
 		int acumulador = 0;
+		int ultimoVizinhoDaDireita = 0;
 		
-		for (int i = 0; i < numero.length(); i++) {
-			acumulador += tabela.get(numero.charAt(i));
+		for (int i = numero.length() - 1; i >= 0; i--) {
+			int atual = tabela.get(numero.charAt(i));
+			
+			int multiplicador = 1;
+			
+			if (atual < ultimoVizinhoDaDireita) {
+				multiplicador = -1;
+			}
+			
+			acumulador += tabela.get(numero.charAt(i)) * multiplicador;
+			ultimoVizinhoDaDireita = atual;
 		}
 		
 		return acumulador;

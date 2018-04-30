@@ -33,5 +33,17 @@ public class ConversorDeNumeroRomanoTest {
 		int numero = romano.converte("II");
 		assertEquals(2, numero);
 	}
+	
+	@Test
+	public void deveEntenderQuatroSimbolosDoisADoisComoXXII() {
+		int numero = romano.converte("XXII");
+		assertEquals(22, numero);
+	}
+	
+	@Test
+	public void deveEntenderNumerosComoIX() {
+		int numero = romano.converte("IX");
+		assertEquals(9, numero);
+	}
 
 }
